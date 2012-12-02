@@ -98,7 +98,7 @@ footer {
     &:hover {
       color: #222;
     }
-  }
+}
   small {
     float: left;
   }
@@ -106,9 +106,9 @@ footer {
     float: right;
     list-style: none;
     li {
-      float: left;
-      margin-left: 10px;
-    }
+        float: left;
+        margin-left: 10px;
+      }
   }
 }
 
@@ -166,7 +166,7 @@ input, textarea, select, .uneditable-input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
-}
+ }
 
 
 
@@ -194,4 +194,31 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+/* microposts */
+
+.microposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
 }
