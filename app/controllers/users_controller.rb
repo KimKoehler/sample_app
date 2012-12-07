@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
-
   def new
     @user = User.new
   end
@@ -49,14 +48,23 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  private
 
-  def signed_in_user
-    unless signed_in?
-      store_location
-      redirect_to signin_path, notice: "Please sign in."
-    end
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
   end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+
+  private
 
   def correct_user
     @user = User.find(params[:id])
